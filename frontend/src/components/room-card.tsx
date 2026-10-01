@@ -16,9 +16,7 @@ export function RoomCard({
   return (
     <article className="flex h-full min-h-72 flex-col rounded-3xl border border-slate-100/50 bg-white p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-shadow duration-200 hover:shadow-[0_12px_36px_rgb(234,88,12,0.14)]">
       <div className="flex items-center justify-between gap-3">
-        <span className="text-xs font-bold uppercase text-primary">
-          Abierta
-        </span>
+        <span className="text-xs font-bold text-primary">Abierta</span>
         <small className="text-muted-foreground">{locationName}</small>
       </div>
       <h3 className="mt-6 text-secondary">{name}</h3>
