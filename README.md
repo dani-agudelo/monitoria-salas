@@ -9,19 +9,25 @@ Sistema web para consultar salas de cómputo abiertas y gestionar turnos de moni
 
 ## Cómo correrlo
 
-```sh
-npm install
-npm run dev
-```
-
-Con Bun:
+La web está en `frontend` y la API en `backend`.
 
 ```sh
+cd frontend
 bun install
 bun run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000).
+En otra terminal:
+
+```sh
+cd backend
+bun install
+bun run start:dev
+```
+
+Desde la raíz también puedes usar `bun run dev` y `bun run api`.
+
+La web queda en [http://localhost:3000](http://localhost:3000). La API queda en [http://localhost:3001](http://localhost:3001).
 
 | Ruta | Qué ves |
 | --- | --- |
@@ -31,15 +37,18 @@ Abre [http://localhost:3000](http://localhost:3000).
 
 ## Otros comandos
 
+Dentro de `frontend`:
+
 ```sh
-npm run build
-npm run preview
-npm run lint
+bun run build
+bun run preview
+bun run lint
 ```
 
 ## Stack
 
-- TanStack Start
-- React
+- TanStack Start y React en `frontend`
+- NestJS en `backend`
 - TypeScript
 - Tailwind CSS
+- Supabase

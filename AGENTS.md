@@ -1,1 +1,0 @@
-- Keep domain models, mock data, and data services separate from route UI so the mock layer can be replaced by Supabase without redesigning screens.

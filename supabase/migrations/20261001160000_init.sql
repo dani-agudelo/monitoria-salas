@@ -26,10 +26,12 @@ create table public.profiles (
 create table public.presences (
   id uuid primary key default gen_random_uuid(),
   room_id text not null references public.rooms (id),
-  monitor_id uuid not null references public.profiles (id),
+  monitor_id uuid not null references public.profiles (id) on delete cascade,
   started_at timestamptz not null default now(),
+  leaves_at timestamptz,
   ended_at timestamptz,
-  check (ended_at is null or ended_at >= started_at)
+  check (ended_at is null or ended_at >= started_at),
+  check (leaves_at is null or leaves_at >= started_at)
 );
 
 create table public.observations (
@@ -165,7 +167,8 @@ select
   p.id as presence_id,
   p.started_at,
   pr.id as monitor_id,
-  pr.full_name as monitor_name
+  pr.full_name as monitor_name,
+  p.leaves_at
 from public.presences p
 join public.rooms r on r.id = p.room_id
 join public.locations l on l.id = r.location_id
